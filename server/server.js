@@ -6,16 +6,14 @@ require('dotenv').config();
 const connectDB = require('./config/db');  
 
 const app = express();
-
 connectDB();   
 
 app.use(cors());
 app.use(express.json());
 
 
-
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/appointments', require('./routes/appointmentRoutes'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/appointments', require('./routes/appointments'));
 
 const PORT = process.env.PORT || 5000;
 
